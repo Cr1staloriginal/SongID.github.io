@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SongID — точное определение жанра и поджанра</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<img class="site-avatar" src="ава.jpg" alt="logo">
+<div class="container">
+  <section class="panel">
+    <div class="tabs">
+      <button class="tab active" data-tab="upload">Загрузка трека</button>
+      <button class="tab" data-tab="search">Поиск трека</button>
+      <button class="tab" data-tab="lyrics">Поиск трека по тексту</button>
+    </div>
+  
+    <div id="upload" class="view active">
+      <div class="file-drop">
+        <p>Поддерживается: MP3 / WAV / OGG / FLAC</p>
+        <br>
+        <input id="audio-file" type="file" accept="audio/*">
+      </div>
+      <button class="btn" id="analyze-file" disabled>Анализировать файл</button>
+      <p class="status" id="upload-status">Выберите файл, чтобы начать анализ.</p>
+    </div>
+    
+    <div id="search" class="view">
+      <input id="search-input" type="search" placeholder="Например: Tale of Us - Another Earth">
+      <div id="search-results" class="search-list"></div>
+    </div>
+
+    <div id="lyrics" class="view">
+      <textarea placeholder="Введите текст песни"></textarea>
+      <button class="btn" style="margin-top: 10px;">Искать</button>
+      <p class="status">Введите фрагмент текста. Будут найдены подходящие треки из каталога.</p>
+    </div>
+  
+    <article id="result" class="result" aria-live="polite">
+      <div class="genre-main" id="genre-main">—</div>
+      <div class="row">
+        <span class="badge" id="subgenre">Поджанр: —</span>
+        <span class="confidence" id="confidence">Точность: —</span>
+      </div>
+      <div class="row" id="alternatives"></div>
+      <p class="meta" id="explain">—</p>
+    </article>
+  </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
