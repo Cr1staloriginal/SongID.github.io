@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SongID — точное определение жанра и поджанра</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+  
+  <section class="hero">
+    <img class="site-avatar" src="/media/логотип.jpg" alt="logo">
+    <div class="hero-content">
+      <h1>SongID: <span class="gradient-text">«Раскрой музыку: от ритма до жанра»</span></h1>
+      <p class="lead">
+        Загрузите любой трек, и мы определим его точный жанр и поджанр. Ищете трек по названию или тексту? Наш движок проанализирует данные из Spotify, Last.fm и Deezer, чтобы дать максимально точный результат.
+      </p>
+      <div class="chips">
+        <span class="chip">🎯 Точность до поджанра</span>
+        <span class="chip">📁 Анализ локальных файлов</span>
+        <span class="chip">🔎 Поиск по тексту</span>
+      </div>
+      <a href="#main-panel" class="btn hero-btn">Начать анализ</a>
+    </div>
+  </section>
+
+  <section class="panel" id="main-panel">
+    <div class="tabs">
+      <button class="tab active" data-tab="upload">Загрузка трека</button>
+      <button class="tab" data-tab="search">Поиск трека</button>
+      <button class="tab" data-tab="lyrics">Поиск трека по тексту</button>
+    </div>
+  
+    <div id="upload" class="view active">
+      <div class="file-drop">
+        <p>Поддерживается: MP3 / WAV / OGG / FLAC</p>
+        <br>
+        <input id="audio-file" type="file" accept="audio/*">
+      </div>
+      <button class="btn" id="analyze-file" disabled>Анализировать файл</button>
+      <p class="status" id="upload-status">Выберите файл, чтобы начать анализ.</p>
+    </div>
+    
+    <div id="search" class="view">
+      <input id="search-input" type="search" placeholder="Например: Tale of Us - Another Earth" autocomplete="off">
+      <div id="search-results" class="search-list"></div>
+    </div>
+
+    <div id="lyrics" class="view">
+      <textarea placeholder="Введите текст песни"></textarea>
+      <button class="btn" style="margin-top: 10px;">Искать</button>
+      <p class="status">Введите фрагмент текста. Будут найдены подходящие треки из каталога.</p>
+    </div>
+  
+    <article id="result" class="result" aria-live="polite">
+      <div class="genre-main" id="genre-main">—</div>
+      <div class="row">
+        <span class="badge" id="subgenre">Поджанр: —</span>
+        <span class="confidence" id="confidence">Точность: —</span>
+      </div>
+      <div class="row" id="alternatives"></div>
+      <p class="meta" id="explain">—</p>
+    </article>
+  </section>
+
+  <section class="info-section how-it-works">
+    <h2>Как это работает?</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Загрузите трек</h3>
+        <p>Или найдите его по названию и тексту через вкладки.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Анализ данных</h3>
+        <p>Мы извлекаем BPM, энергию и яркость из файла или получаем их через Spotify/Deezer.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Точный результат</h3>
+        <p>Наш логический классификатор определяет жанр и поджанр с подробным объяснением.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section about">
+    <h2>О проекте SongID</h2>
+    <div class="about-content">
+      <p>
+        <strong>SongID</strong> — это инновационный веб-сервис, демонстрирующий применение 
+        технологий <strong>Music Information Retrieval</strong> (извлечение музыкальной информации) 
+        в веб-среде. Проект использует <strong>Web Audio API</strong> для локального анализа 
+        и интегрируется с <strong>Spotify, Last.fm, Deezer и Genius</strong> для получения 
+        расширенных данных о треках.
+      </p>
+    </div>
+  </section>
+
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>
